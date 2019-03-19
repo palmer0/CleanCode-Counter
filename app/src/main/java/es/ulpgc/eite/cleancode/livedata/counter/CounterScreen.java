@@ -19,7 +19,6 @@ public class CounterScreen {
     CounterContract.Presenter presenter = new CounterPresenter(state);
     CounterContract.Model model = new CounterModel();
     presenter.injectModel(model);
-    //presenter.injectView(new WeakReference<>(view));
 
     view.injectPresenter(presenter);
 

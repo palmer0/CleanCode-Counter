@@ -1,47 +1,43 @@
 package es.ulpgc.eite.cleancode.livedata.counter;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 
 public class CounterPresenter implements CounterContract.Presenter {
 
   public static String TAG = CounterPresenter.class.getSimpleName();
 
-  //private WeakReference<CounterContract.View> view;
-  private CounterViewModel viewModel;
   private CounterContract.Model model;
+  private CounterState state;
+  private MutableLiveData<CounterViewModel> viewModel;
+
 
   public CounterPresenter(CounterState state) {
-    viewModel = state;
+    this.state = state;
+    viewModel = new MutableLiveData();
+    viewModel.setValue(state);
   }
 
   @Override
-  public LiveData<Integer> fetchData() {
+  public LiveData<CounterViewModel> fetchData() {
 
-    // call the model
-    Integer counter = viewModel.getData();
-    model.setData(counter);
+    model.setCounter(state.getCounter());
+    model.setClicks(state.getClicks());
 
-    return viewModel.getLiveData();
-
+    return viewModel;
   }
+
 
   @Override
   public void updateData() {
 
-    // call the model
-    model.updateData();
-    Integer counter = model.getData();
+    model.updateCounter();
 
-    // set view state
-    viewModel.setData(counter);
+    state.setCounter(model.getCounter());
+    state.setClicks(model.getClicks());
+    viewModel.setValue(state);
   }
 
-  /*
-  @Override
-  public void injectView(WeakReference<CounterContract.View> view) {
-    this.view = view;
-  }
-  */
 
   @Override
   public void injectModel(CounterContract.Model model) {

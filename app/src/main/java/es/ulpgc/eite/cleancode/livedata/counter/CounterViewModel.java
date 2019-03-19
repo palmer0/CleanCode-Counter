@@ -1,26 +1,16 @@
 package es.ulpgc.eite.cleancode.livedata.counter;
 
-import android.arch.lifecycle.MutableLiveData;
-
 public class CounterViewModel {
 
-  // put the view state here
-  private MutableLiveData<Integer> liveData = new MutableLiveData();
 
-  public CounterViewModel() {
-    liveData.setValue(0);
+  private int counter;
+
+  public int getCounter() {
+    return counter;
   }
 
-  public MutableLiveData<Integer> getLiveData() {
-    return liveData;
+  public void setCounter(int value) {
+    counter = value;
   }
 
-  public void setData(Integer counter) {
-    liveData.setValue(counter);
-  }
-
-
-  public Integer getData() {
-    return liveData.getValue();
-  }
 }

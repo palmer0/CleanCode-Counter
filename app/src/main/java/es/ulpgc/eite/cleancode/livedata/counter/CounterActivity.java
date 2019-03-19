@@ -28,18 +28,19 @@ public class CounterActivity
       }
     });
 
-    // do the setup
     CounterScreen.configure(this);
 
-    // load the data
-    presenter.fetchData().observe(this, new Observer<Integer>() {
+    presenter.fetchData().observe(this, new Observer<CounterViewModel>() {
+
 
       @Override
-      public void onChanged( Integer counter) {
-        String text = counter.toString();
+      public void onChanged( CounterViewModel viewModel) {
+        String text = String.valueOf(viewModel.getCounter());
         ((TextView) findViewById(R.id.text)).setText(text);
       }
+
     });
+
   }
 
   @Override

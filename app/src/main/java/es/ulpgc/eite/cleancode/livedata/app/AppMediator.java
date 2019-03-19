@@ -6,9 +6,11 @@ import es.ulpgc.eite.cleancode.livedata.counter.CounterState;
 
 public class AppMediator extends Application {
 
-  private CounterState state = new CounterState();
+  private CounterState counter = new CounterState();
+
 
   public CounterState getCounterState() {
-    return state;
+    return counter;
   }
+
 }
