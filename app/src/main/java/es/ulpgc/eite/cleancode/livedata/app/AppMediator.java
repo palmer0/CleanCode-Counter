@@ -8,10 +8,6 @@ public class AppMediator extends Application {
 
   private CounterState state = new CounterState();
 
-  public void setCounterState(CounterState state) {
-    this.state = state;
-  }
-
   public CounterState getCounterState() {
     return state;
   }
