@@ -8,7 +8,7 @@ public class CounterPresenter implements CounterContract.Presenter {
 
   public static String TAG = CounterPresenter.class.getSimpleName();
 
-  private WeakReference<CounterContract.View> view;
+  //private WeakReference<CounterContract.View> view;
   private CounterViewModel viewModel;
   private CounterContract.Model model;
 
@@ -38,10 +38,12 @@ public class CounterPresenter implements CounterContract.Presenter {
     viewModel.setData(counter);
   }
 
+  /*
   @Override
   public void injectView(WeakReference<CounterContract.View> view) {
     this.view = view;
   }
+  */
 
   @Override
   public void injectModel(CounterContract.Model model) {

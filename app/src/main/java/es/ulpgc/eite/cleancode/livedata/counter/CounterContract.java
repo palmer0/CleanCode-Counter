@@ -12,7 +12,7 @@ public interface CounterContract {
   }
 
   interface Presenter {
-    void injectView(WeakReference<View> view);
+    //void injectView(WeakReference<View> view);
     void injectModel(Model model);
 
     LiveData<Integer> fetchData();
