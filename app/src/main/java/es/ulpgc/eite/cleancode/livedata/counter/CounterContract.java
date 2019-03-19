@@ -25,9 +25,4 @@ public interface CounterContract {
     void setData(Integer counter);
   }
 
-  interface Router {
-    void navigateToNextScreen();
-    void passDataToNextScreen(CounterState state);
-    CounterState getDataFromPreviousScreen();
-  }
 }

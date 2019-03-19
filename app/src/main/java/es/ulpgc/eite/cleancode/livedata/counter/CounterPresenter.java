@@ -11,7 +11,6 @@ public class CounterPresenter implements CounterContract.Presenter {
   private WeakReference<CounterContract.View> view;
   private CounterViewModel viewModel;
   private CounterContract.Model model;
-  private CounterContract.Router router;
 
   public CounterPresenter(CounterState state) {
     viewModel = state;
