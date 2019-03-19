@@ -41,13 +41,6 @@ public class CounterPresenter implements CounterContract.Presenter {
 
     });
 
-    return viewModel;
-  }
-
-
-  @Override
-  public void updateData() {
-
     model.fetchData().observe(context.get(), new Observer<CounterState>() {
 
       @Override
@@ -57,6 +50,12 @@ public class CounterPresenter implements CounterContract.Presenter {
 
     });
 
+    return viewModel;
+  }
+
+
+  @Override
+  public void updateData() {
     model.updateCounter();
   }
 
