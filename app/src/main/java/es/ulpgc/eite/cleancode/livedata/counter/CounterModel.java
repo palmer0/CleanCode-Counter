@@ -16,24 +16,13 @@ public class CounterModel implements CounterContract.Model {
 
   public CounterModel() {
     state = new MutableLiveData();
-    //state.setValue(new CounterState());
   }
-
-
 
   @Override
   public LiveData<CounterState> fetchData() {
     return state;
   }
 
-  /*
-  @Override
-  public void setData(CounterState state) {
-    counter = state.getCounter();
-    clicks = state.getClicks();
-    this.state.setValue(state);
-  }
-  */
 
   @Override
   public void setCounter(Integer value) {
@@ -44,19 +33,6 @@ public class CounterModel implements CounterContract.Model {
   public void setClicks(Integer value) {
     clicks = value;
   }
-
-  /*
-  @Override
-  public Integer getClicks() {
-    return clicks;
-  }
-
-  @Override
-  public Integer getCounter() {
-    return counter;
-  }
-  */
-
 
   @Override
   public void updateCounter() {

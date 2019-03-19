@@ -13,11 +13,6 @@ public class CounterScreen {
     WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
-    AppMediator mediator = (AppMediator) context.get().getApplication();
-    CounterState state = mediator.getState();
-
-    //CounterContract.Presenter presenter = new CounterPresenter(state);
-    //CounterContract.Presenter presenter = new CounterPresenter(mediator);
     CounterContract.Presenter presenter = new CounterPresenter(context);
     CounterContract.Model model = new CounterModel();
     presenter.injectModel(model);

@@ -9,8 +9,6 @@ import es.ulpgc.eite.cleancode.livedata.counter.CounterState;
 public class AppMediator extends Application {
 
   private MutableLiveData<CounterState> state;
-  //private CounterState state = new CounterState();
-
 
   @Override
   public void onCreate() {
@@ -33,9 +31,4 @@ public class AppMediator extends Application {
     state.setValue(value);
   }
 
-  /*
-  public CounterState getState() {
-    return state;
-  }
-  */
 }
