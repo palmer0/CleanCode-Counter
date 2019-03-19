@@ -17,11 +17,14 @@ public interface CounterContract {
   }
 
   interface Model {
-    Integer getCounter();
+    //Integer getCounter();
+    //Integer getClicks();
     void updateCounter();
     void setCounter(Integer value);
     void setClicks(Integer value);
-    Integer getClicks();
+    LiveData<CounterState> fetchData();
+
+    //void setData(CounterState data);
   }
 
 }

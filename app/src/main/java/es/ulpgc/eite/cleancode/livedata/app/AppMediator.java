@@ -1,16 +1,41 @@
 package es.ulpgc.eite.cleancode.livedata.app;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 
 import es.ulpgc.eite.cleancode.livedata.counter.CounterState;
 
 public class AppMediator extends Application {
 
-  private CounterState counter = new CounterState();
+  private MutableLiveData<CounterState> state;
+  //private CounterState state = new CounterState();
 
 
-  public CounterState getCounterState() {
-    return counter;
+  @Override
+  public void onCreate() {
+    super.onCreate();
+
+    state = new MutableLiveData();
+    state.setValue(new CounterState());
   }
 
+  public CounterState getState() {
+    return state.getValue();
+  }
+
+
+  public LiveData<CounterState> fetchState() {
+    return state;
+  }
+
+  public void setState(CounterState value) {
+    state.setValue(value);
+  }
+
+  /*
+  public CounterState getState() {
+    return state;
+  }
+  */
 }
