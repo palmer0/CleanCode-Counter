@@ -35,7 +35,7 @@ public class CounterModel implements CounterContract.Model {
   }
 
   @Override
-  public void updateCounter() {
+  public void updateData() {
     clicks++;
     counter++;
 

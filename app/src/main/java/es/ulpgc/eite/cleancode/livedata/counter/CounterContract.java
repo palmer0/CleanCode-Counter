@@ -17,7 +17,7 @@ public interface CounterContract {
   }
 
   interface Model {
-    void updateCounter();
+    void updateData();
     void setCounter(Integer value);
     void setClicks(Integer value);
     LiveData<CounterState> fetchData();

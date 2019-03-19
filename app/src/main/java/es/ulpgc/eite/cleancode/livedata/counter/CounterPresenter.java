@@ -56,7 +56,7 @@ public class CounterPresenter implements CounterContract.Presenter {
 
   @Override
   public void updateData() {
-    model.updateCounter();
+    model.updateData();
   }
 
 
