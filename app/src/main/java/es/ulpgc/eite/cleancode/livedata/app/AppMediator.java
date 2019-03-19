@@ -18,11 +18,6 @@ public class AppMediator extends Application {
     state.setValue(new CounterState());
   }
 
-  public CounterState getState() {
-    return state.getValue();
-  }
-
-
   public LiveData<CounterState> fetchState() {
     return state;
   }
