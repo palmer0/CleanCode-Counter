@@ -20,7 +20,7 @@ public interface CounterContract {
   }
 
   interface Model {
-    Integer fetchData();
+    Integer getData();
     void updateData();
     void setData(Integer counter);
   }

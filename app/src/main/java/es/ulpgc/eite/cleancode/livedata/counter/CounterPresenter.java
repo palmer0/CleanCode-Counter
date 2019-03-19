@@ -2,8 +2,6 @@ package es.ulpgc.eite.cleancode.livedata.counter;
 
 import android.arch.lifecycle.LiveData;
 
-import java.lang.ref.WeakReference;
-
 public class CounterPresenter implements CounterContract.Presenter {
 
   public static String TAG = CounterPresenter.class.getSimpleName();
@@ -32,7 +30,7 @@ public class CounterPresenter implements CounterContract.Presenter {
 
     // call the model
     model.updateData();
-    Integer counter = model.fetchData();
+    Integer counter = model.getData();
 
     // set view state
     viewModel.setData(counter);

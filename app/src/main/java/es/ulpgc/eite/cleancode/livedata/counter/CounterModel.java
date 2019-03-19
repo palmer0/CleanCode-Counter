@@ -13,7 +13,7 @@ public class CounterModel implements CounterContract.Model {
   }
 
   @Override
-  public Integer fetchData() {
+  public Integer getData() {
     return counter;
   }
 
