@@ -30,11 +30,6 @@ public class CounterActivity
 
     // do the setup
     CounterScreen.configure(this);
-  }
-
-  @Override
-  protected void onResume() {
-    super.onResume();
 
     // load the data
     presenter.fetchData().observe(this, new Observer<Integer>() {
@@ -46,7 +41,6 @@ public class CounterActivity
       }
     });
   }
-
 
   @Override
   public void injectPresenter(CounterContract.Presenter presenter) {
