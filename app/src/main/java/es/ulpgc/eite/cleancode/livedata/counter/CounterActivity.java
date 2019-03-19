@@ -32,7 +32,6 @@ public class CounterActivity
 
     presenter.fetchData().observe(this, new Observer<CounterViewModel>() {
 
-
       @Override
       public void onChanged( CounterViewModel viewModel) {
         String text = String.valueOf(viewModel.getCounter());
