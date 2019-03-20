@@ -2,5 +2,7 @@
     <string name="app_name">Counter</string>
     <string name="counter_label">+1</string>
     <string name="reset_label">Reset</string>
+    <string name="counter_screen">Counter</string>
+    <string name="reset_screen">Reset</string>
 
 </resources>

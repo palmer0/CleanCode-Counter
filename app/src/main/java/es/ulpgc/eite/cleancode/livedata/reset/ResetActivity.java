@@ -20,6 +20,8 @@ public class ResetActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_reset);
 
+    getSupportActionBar().setTitle(R.string.reset_screen);
+
     findViewById(R.id.btnReset).setOnClickListener(new View.OnClickListener() {
 
       @Override

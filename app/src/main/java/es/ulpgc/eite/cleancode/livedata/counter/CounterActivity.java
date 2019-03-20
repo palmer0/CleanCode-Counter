@@ -20,6 +20,8 @@ public class CounterActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_counter);
 
+    getSupportActionBar().setTitle(R.string.counter_screen);
+
     findViewById(R.id.btnCounter).setOnClickListener(new View.OnClickListener() {
 
       @Override
