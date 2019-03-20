@@ -5,10 +5,11 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 import es.ulpgc.eite.cleancode.livedata.counter.CounterState;
+import es.ulpgc.eite.cleancode.livedata.reset.ResetState;
 
 public class AppMediator extends Application {
 
-
+  private MutableLiveData<ResetState> reset;
   private MutableLiveData<CounterState> state;
 
   @Override
