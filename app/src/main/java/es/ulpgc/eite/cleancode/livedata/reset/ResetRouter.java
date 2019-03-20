@@ -14,11 +14,6 @@ public class ResetRouter implements ResetContract.Router {
   private WeakReference<FragmentActivity> context;
   //private AppMediator mediator;
 
-  /*
-  public ResetRouter(AppMediator mediator) {
-    this.mediator = mediator;
-  }
-  */
 
   public ResetRouter(WeakReference<FragmentActivity> context) {
     this.context = context;
@@ -27,7 +22,6 @@ public class ResetRouter implements ResetContract.Router {
 
   @Override
   public void navigateToPreviousScreen() {
-    //Context context = mediator.getApplicationContext();
     context.get().finish();
   }
 

@@ -19,10 +19,11 @@ public interface ResetContract {
 
   interface Model {
 
-    LiveData<ResetState> fetchData();
     boolean getStatus();
     void setStatus(Boolean value);
     void setClicks(Integer value);
+
+    LiveData<ResetState> fetchData();
     void resetData();
   }
 

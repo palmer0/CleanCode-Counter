@@ -11,9 +11,6 @@ public class ResetScreen {
     WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
-    //AppMediator mediator = (AppMediator) context.get().getApplication();
-
-    //ResetContract.Router router = new ResetRouter(mediator);
     ResetContract.Router router = new ResetRouter(context);
     ResetContract.Presenter presenter = new ResetPresenter(context);
     ResetContract.Model model = new ResetModel();

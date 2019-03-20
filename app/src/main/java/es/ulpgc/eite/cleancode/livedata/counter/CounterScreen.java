@@ -11,9 +11,6 @@ public class CounterScreen {
     WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
-    //AppMediator mediator = (AppMediator) context.get().getApplication();
-
-    //CounterContract.Router router = new CounterRouter(mediator);
     CounterContract.Router router = new CounterRouter(context);
     CounterContract.Presenter presenter = new CounterPresenter(context);
     CounterContract.Model model = new CounterModel();

@@ -22,12 +22,6 @@ public class CounterRouter implements CounterContract.Router {
     mediator = (AppMediator) context.get().getApplication();
   }
 
-  /*
-  public CounterRouter(AppMediator mediator) {
-    this.mediator = mediator;
-  }
-  */
-
   @Override
   public void navigateToNextScreen() {
     Context context = mediator.getApplicationContext();
