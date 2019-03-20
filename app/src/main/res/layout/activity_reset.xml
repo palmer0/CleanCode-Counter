@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".counter.CounterActivity">
+    tools:context=".reset.ResetActivity">
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="40dp" />
 
     <TextView
-        android:id="@+id/txtCounter"
+        android:id="@+id/txtClicks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -26,24 +26,11 @@
         android:layout_height="20dp" />
 
     <Button
-        android:id="@+id/btnCounter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/counter_label"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        tools:text="Button" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
-
-    <Button
         android:id="@+id/btnReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/counter_label"
+        android:text="@string/reset_label"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         tools:text="Button" />
 

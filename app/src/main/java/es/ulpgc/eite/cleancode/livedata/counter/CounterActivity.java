@@ -20,7 +20,7 @@ public class CounterActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_counter);
 
-    findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+    findViewById(R.id.btnCounter).setOnClickListener(new View.OnClickListener() {
 
       @Override
       public void onClick(View view) {
@@ -35,7 +35,7 @@ public class CounterActivity
       @Override
       public void onChanged( CounterViewModel viewModel) {
         String text = String.valueOf(viewModel.getCounter());
-        ((TextView) findViewById(R.id.text)).setText(text);
+        ((TextView) findViewById(R.id.txtCounter)).setText(text);
       }
 
     });
