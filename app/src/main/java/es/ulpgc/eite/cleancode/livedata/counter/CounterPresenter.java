@@ -17,7 +17,7 @@ public class CounterPresenter implements CounterContract.Presenter {
   private AppMediator mediator;
   private CounterContract.Model model;
   private MutableLiveData<CounterViewModel> viewModel;
-
+  private CounterContract.Router router;
 
   public CounterPresenter(WeakReference<FragmentActivity> context) {
     this.context = context;
@@ -30,7 +30,8 @@ public class CounterPresenter implements CounterContract.Presenter {
   @Override
   public LiveData<CounterViewModel> fetchData() {
 
-    mediator.fetchState().observe(context.get(), new Observer<CounterState>() {
+    mediator.fetchCounterState()
+        .observe(context.get(), new Observer<CounterState>() {
 
       @Override
       public void onChanged( CounterState state) {
@@ -45,7 +46,7 @@ public class CounterPresenter implements CounterContract.Presenter {
 
       @Override
       public void onChanged( CounterState state) {
-        mediator.setState(state);
+        mediator.setCounterState(state);
       }
 
     });
@@ -59,10 +60,20 @@ public class CounterPresenter implements CounterContract.Presenter {
     model.updateData();
   }
 
+  @Override
+  public void resetData() {
+    router.passDataToNextScreen(model.getClicks());
+    router.navigateToNextScreen();
+  }
+
 
   @Override
   public void injectModel(CounterContract.Model model) {
     this.model = model;
   }
 
+  @Override
+  public void injectRouter(CounterContract.Router router) {
+    this.router = router;
+  }
 }

@@ -1,36 +1,46 @@
 package es.ulpgc.eite.cleancode.livedata.reset;
 
-import android.util.Log;
-import android.content.Intent;
-import android.content.Context;
+import android.support.v4.app.FragmentActivity;
+
+import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.livedata.app.AppMediator;
+import es.ulpgc.eite.cleancode.livedata.counter.CounterState;
 
 public class ResetRouter implements ResetContract.Router {
 
   public static String TAG = ResetRouter.class.getSimpleName();
 
-  private AppMediator mediator;
+  private WeakReference<FragmentActivity> context;
+  //private AppMediator mediator;
 
+  /*
   public ResetRouter(AppMediator mediator) {
     this.mediator = mediator;
   }
+  */
 
-  @Override
-  public void navigateToNextScreen() {
-    Context context = mediator.getApplicationContext();
-    Intent intent = new Intent(context, ResetActivity.class);
-    context.startActivity(intent);
+  public ResetRouter(WeakReference<FragmentActivity> context) {
+    this.context = context;
+    //mediator = (AppMediator) context.get().getApplication();
   }
 
   @Override
-  public void passDataToNextScreen(ResetState state) {
-    mediator.setResetState(state);
+  public void navigateToPreviousScreen() {
+    //Context context = mediator.getApplicationContext();
+    context.get().finish();
   }
 
   @Override
-  public ResetState getDataFromPreviousScreen() {
-    ResetState state = mediator.getResetState();
-    return state;
+  public void passDataToPreviousScreen(boolean reset) {
+    if (reset) {
+      CounterState state = new CounterState();
+      state.setClicks(0);
+      state.setCounter(0);
+
+      AppMediator mediator = (AppMediator) context.get().getApplication();
+      mediator.setCounterState(state);
+    }
   }
+
 }

@@ -28,6 +28,14 @@ public class CounterActivity
       }
     });
 
+    findViewById(R.id.btnReset).setOnClickListener(new View.OnClickListener() {
+
+      @Override
+      public void onClick(View view) {
+        presenter.resetData();
+      }
+    });
+
     CounterScreen.configure(this);
 
     presenter.fetchData().observe(this, new Observer<CounterViewModel>() {

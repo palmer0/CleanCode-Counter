@@ -1,62 +1,69 @@
 package es.ulpgc.eite.cleancode.livedata.reset;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 
 import java.lang.ref.WeakReference;
+
+import es.ulpgc.eite.cleancode.livedata.app.AppMediator;
 
 public class ResetPresenter implements ResetContract.Presenter {
 
   public static String TAG = ResetPresenter.class.getSimpleName();
 
   private WeakReference<FragmentActivity> context;
-  private WeakReference<ResetContract.View> view;
-  private ResetViewModel viewModel;
   private ResetContract.Model model;
   private ResetContract.Router router;
+  private AppMediator mediator;
+  private MutableLiveData<ResetViewModel> viewModel;
 
-  /*
-  public ResetPresenter(ResetState state) {
-    viewModel = state;
-  }
-  */
 
   public ResetPresenter(WeakReference<FragmentActivity> context) {
+    this.context = context;
 
+    mediator = (AppMediator) context.get().getApplication();
+    viewModel = new MutableLiveData();
   }
+
 
   @Override
-  public void fetchData() {
-    // Log.e(TAG, "fetchData()");
+  public LiveData<ResetViewModel> fetchData() {
 
-    // use passed state if is necessary
-    ResetState state = router.getDataFromPreviousScreen();
-    if (state != null) {
+    mediator.fetchResetState()
+        .observe(context.get(), new Observer<ResetState>() {
 
-      // update view and model state
-      viewModel.data = state.data;
+      @Override
+      public void onChanged( ResetState state) {
+        model.setStatus(state.getStatus());
+        model.setClicks(state.getClicks());
+        viewModel.setValue(state);
+      }
 
-      // update the view
-      view.get().displayData(viewModel);
+    });
 
-      return;
-    }
+    model.fetchData().observe(context.get(), new Observer<ResetState>() {
 
-    // call the model
-    String data = model.fetchData();
+      @Override
+      public void onChanged( ResetState state) {
+        mediator.setResetState(state);
+      }
 
-    // set view state
-    viewModel.data = data;
+    });
 
-    // update the view
-    view.get().displayData(viewModel);
-
+    return viewModel;
   }
+
 
   @Override
-  public void injectView(WeakReference<ResetContract.View> view) {
-    this.view = view;
+  public void resetData() {
+    model.resetData();
+
+    router.passDataToPreviousScreen(model.getStatus());
+    router.navigateToPreviousScreen();
   }
+
 
   @Override
   public void injectModel(ResetContract.Model model) {

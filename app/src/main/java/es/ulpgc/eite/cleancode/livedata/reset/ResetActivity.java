@@ -1,8 +1,9 @@
 package es.ulpgc.eite.cleancode.livedata.reset;
 
-import android.support.v7.app.AppCompatActivity;
+import android.arch.lifecycle.Observer;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import es.ulpgc.eite.cleancode.livedata.R;
@@ -19,24 +20,25 @@ public class ResetActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_reset);
 
-    // do the setup
+    findViewById(R.id.btnReset).setOnClickListener(new View.OnClickListener() {
+
+      @Override
+      public void onClick(View view) {
+        presenter.resetData();
+      }
+    });
+
     ResetScreen.configure(this);
-  }
 
-  @Override
-  protected void onResume() {
-    super.onResume();
+    presenter.fetchData().observe(this, new Observer<ResetViewModel>() {
 
-    // load the data
-    presenter.fetchData();
-  }
+      @Override
+      public void onChanged( ResetViewModel viewModel) {
+        String text = String.valueOf(viewModel.getClicks());
+        ((TextView) findViewById(R.id.txtClicks)).setText(text);
+      }
 
-  @Override
-  public void displayData(ResetViewModel viewModel) {
-    //Log.e(TAG, "displayData()");
-
-    // deal with the data
-    ((TextView) findViewById(R.id.txtClicks)).setText(viewModel.data);
+    });
   }
 
   @Override

@@ -8,8 +8,8 @@ public class CounterModel implements CounterContract.Model {
   public static String TAG = CounterModel.class.getSimpleName();
 
 
-  private Integer counter;
-  private Integer clicks;
+  private int counter;
+  private int clicks;
 
   private MutableLiveData<CounterState> state;
 
@@ -32,6 +32,11 @@ public class CounterModel implements CounterContract.Model {
   @Override
   public void setClicks(Integer value) {
     clicks = value;
+  }
+
+  @Override
+  public int getClicks() {
+    return clicks;
   }
 
   @Override

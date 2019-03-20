@@ -10,22 +10,33 @@ import es.ulpgc.eite.cleancode.livedata.reset.ResetState;
 public class AppMediator extends Application {
 
   private MutableLiveData<ResetState> reset;
-  private MutableLiveData<CounterState> state;
+  private MutableLiveData<CounterState> counter;
 
   @Override
   public void onCreate() {
     super.onCreate();
 
-    state = new MutableLiveData();
-    state.setValue(new CounterState());
+    counter = new MutableLiveData();
+    counter.setValue(new CounterState());
+
+    reset = new MutableLiveData();
+    reset.setValue(new ResetState());
   }
 
-  public LiveData<CounterState> fetchState() {
-    return state;
+  public LiveData<CounterState> fetchCounterState() {
+    return counter;
   }
 
-  public void setState(CounterState value) {
-    state.setValue(value);
+  public void setCounterState(CounterState value) {
+    counter.setValue(value);
+  }
+
+  public LiveData<ResetState> fetchResetState() {
+    return reset;
+  }
+
+  public void setResetState(ResetState value) {
+    reset.setValue(value);
   }
 
 }

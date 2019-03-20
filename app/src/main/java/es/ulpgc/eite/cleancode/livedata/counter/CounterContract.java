@@ -11,12 +11,15 @@ public interface CounterContract {
 
   interface Presenter {
     void injectModel(Model model);
+    void injectRouter(Router router);
 
     LiveData<CounterViewModel> fetchData();
     void updateData();
+    void resetData();
   }
 
   interface Model {
+    int getClicks();
     void updateData();
     void setCounter(Integer value);
     void setClicks(Integer value);
@@ -24,4 +27,8 @@ public interface CounterContract {
 
   }
 
+  interface Router {
+    void navigateToNextScreen();
+    void passDataToNextScreen(Integer value);
+  }
 }
