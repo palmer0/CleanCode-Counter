@@ -8,6 +8,7 @@ import es.ulpgc.eite.cleancode.livedata.counter.CounterState;
 
 public class AppMediator extends Application {
 
+
   private MutableLiveData<CounterState> state;
 
   @Override
