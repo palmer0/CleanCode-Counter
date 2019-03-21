@@ -41,6 +41,27 @@ public class CounterModel implements CounterContract.Model {
 
   @Override
   public void updateData() {
+
+    CounterState value = new CounterState();
+    value.setCounter(increment(counter));
+    value.setClicks(clicks + 1);
+    state.setValue(value);
+
+  }
+
+  public int increment(int counter) {
+    counter++;
+
+    if(counter == 10){
+      counter = 0;
+    }
+
+    return counter;
+  }
+
+  /*
+  @Override
+  public void updateData() {
     clicks++;
     counter++;
 
@@ -54,6 +75,6 @@ public class CounterModel implements CounterContract.Model {
     state.setValue(value);
 
   }
-
+  */
 
 }

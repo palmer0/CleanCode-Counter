@@ -4,14 +4,16 @@ public class ResetState extends ResetViewModel {
 
   // put the model state here
 
-  private boolean status;
+
+  private boolean reset;
 
 
-  public boolean getStatus() {
-    return status;
+  public boolean getReset() {
+    return reset;
   }
 
-  public void setStatus(boolean value) {
-    status = value;
+  public void setReset(boolean value) {
+    reset = value;
   }
+
 }

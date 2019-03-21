@@ -8,7 +8,7 @@ public class ResetModel implements ResetContract.Model {
   public static String TAG = ResetModel.class.getSimpleName();
 
   private int clicks;
-  private boolean status;
+  private boolean reset;
 
   private MutableLiveData<ResetState> state;
 
@@ -21,15 +21,17 @@ public class ResetModel implements ResetContract.Model {
     return state;
   }
 
+
   @Override
-  public boolean getStatus() {
-    return status;
+  public boolean getReset() {
+    return reset;
   }
 
   @Override
-  public void setStatus(Boolean value) {
-    status = value;
+  public void setReset(Boolean value) {
+    reset = value;
   }
+
 
   @Override
   public void setClicks(Integer value) {
@@ -38,13 +40,17 @@ public class ResetModel implements ResetContract.Model {
 
   @Override
   public void resetData() {
-    clicks = 0;
-    status = true;
+    //clicks = 0;
+    //reset = true;
 
     ResetState value = new ResetState();
-    value.setStatus(status);
-    value.setClicks(clicks);
+    //value.setReset(reset);
+    //value.setClicks(clicks);
+    value.setReset(true);
+    value.setClicks(0);
     state.setValue(value);
 
   }
+
+
 }

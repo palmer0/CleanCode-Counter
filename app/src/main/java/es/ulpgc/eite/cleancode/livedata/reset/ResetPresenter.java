@@ -36,8 +36,9 @@ public class ResetPresenter implements ResetContract.Presenter {
 
       @Override
       public void onChanged( ResetState state) {
-        model.setStatus(state.getStatus());
+        model.setReset(state.getReset());
         model.setClicks(state.getClicks());
+
         viewModel.setValue(state);
       }
 
@@ -60,7 +61,7 @@ public class ResetPresenter implements ResetContract.Presenter {
   public void resetData() {
     model.resetData();
 
-    router.passDataToPreviousScreen(model.getStatus());
+    router.passDataToPreviousScreen(model.getReset());
     router.navigateToPreviousScreen();
   }
 

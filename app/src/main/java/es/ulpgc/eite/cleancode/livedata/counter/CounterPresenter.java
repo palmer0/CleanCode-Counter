@@ -37,6 +37,7 @@ public class CounterPresenter implements CounterContract.Presenter {
       public void onChanged( CounterState state) {
         model.setCounter(state.getCounter());
         model.setClicks(state.getClicks());
+
         viewModel.setValue(state);
       }
 
