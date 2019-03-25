@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-
 import es.ulpgc.eite.cleancode.livedata.R;
 
 public class CounterActivity
@@ -47,9 +46,7 @@ public class CounterActivity
         String text = String.valueOf(viewModel.getCounter());
         ((TextView) findViewById(R.id.txtCounter)).setText(text);
       }
-
     });
-
   }
 
   @Override
