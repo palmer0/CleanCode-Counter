@@ -4,5 +4,6 @@
     <string name="reset_label">Reset</string>
     <string name="counter_screen">Counter</string>
     <string name="reset_screen">Reset</string>
+    <string name="go_reset_label">Go Reset</string>
 
 </resources>
