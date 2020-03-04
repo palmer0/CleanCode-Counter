@@ -1,6 +1,6 @@
 package es.ulpgc.eite.cleancode.livedata.counter;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 public interface CounterContract {
 

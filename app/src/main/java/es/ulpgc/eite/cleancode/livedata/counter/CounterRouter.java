@@ -1,7 +1,8 @@
 package es.ulpgc.eite.cleancode.livedata.counter;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
+
+import androidx.fragment.app.FragmentActivity;
 
 import java.lang.ref.WeakReference;
 

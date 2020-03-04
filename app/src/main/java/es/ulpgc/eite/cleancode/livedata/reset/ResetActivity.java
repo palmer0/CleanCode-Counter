@@ -1,10 +1,11 @@
 package es.ulpgc.eite.cleancode.livedata.reset;
 
-import android.arch.lifecycle.Observer;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import es.ulpgc.eite.cleancode.livedata.R;
 

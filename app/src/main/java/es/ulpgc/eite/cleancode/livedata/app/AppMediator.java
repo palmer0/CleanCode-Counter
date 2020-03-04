@@ -1,8 +1,9 @@
 package es.ulpgc.eite.cleancode.livedata.app;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import es.ulpgc.eite.cleancode.livedata.counter.CounterState;
 import es.ulpgc.eite.cleancode.livedata.reset.ResetState;

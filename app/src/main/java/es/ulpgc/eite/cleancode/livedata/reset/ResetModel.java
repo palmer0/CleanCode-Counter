@@ -1,7 +1,7 @@
 package es.ulpgc.eite.cleancode.livedata.reset;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 public class ResetModel implements ResetContract.Model {
 
